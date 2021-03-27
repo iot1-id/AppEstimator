@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/AppEstimator/static/css/main.1b864437.chunk.css",
+    "main.js": "/AppEstimator/static/js/main.a4fa8e35.chunk.js",
+    "main.js.map": "/AppEstimator/static/js/main.a4fa8e35.chunk.js.map",
+    "runtime-main.js": "/AppEstimator/static/js/runtime-main.32cedd3a.js",
+    "runtime-main.js.map": "/AppEstimator/static/js/runtime-main.32cedd3a.js.map",
+    "static/js/2.749d8afd.chunk.js": "/AppEstimator/static/js/2.749d8afd.chunk.js",
+    "static/js/2.749d8afd.chunk.js.map": "/AppEstimator/static/js/2.749d8afd.chunk.js.map",
+    "index.html": "/AppEstimator/index.html",
+    "precache-manifest.d33548a793d58b179f84e64b7c8af33b.js": "/AppEstimator/precache-manifest.d33548a793d58b179f84e64b7c8af33b.js",
+    "service-worker.js": "/AppEstimator/service-worker.js",
+    "static/css/main.1b864437.chunk.css.map": "/AppEstimator/static/css/main.1b864437.chunk.css.map",
+    "static/js/2.749d8afd.chunk.js.LICENSE.txt": "/AppEstimator/static/js/2.749d8afd.chunk.js.LICENSE.txt",
+    "static/media/advanced.png": "/AppEstimator/static/media/advanced.e9d4f62c.png",
+    "static/media/avatar.jpg": "/AppEstimator/static/media/avatar.7257a1a9.jpg",
+    "static/media/bg1.jpg": "/AppEstimator/static/media/bg1.aba22f1a.jpg",
+    "static/media/bg11.jpg": "/AppEstimator/static/media/bg11.e643a6cf.jpg",
+    "static/media/bg3.jpg": "/AppEstimator/static/media/bg3.f807b37b.jpg",
+    "static/media/bg5.jpg": "/AppEstimator/static/media/bg5.056eb058.jpg",
+    "static/media/bg6.jpg": "/AppEstimator/static/media/bg6.d7d1aaf7.jpg",
+    "static/media/bg7.jpg": "/AppEstimator/static/media/bg7.607a4a36.jpg",
+    "static/media/bg8.jpg": "/AppEstimator/static/media/bg8.6737ce3b.jpg",
+    "static/media/eva.jpg": "/AppEstimator/static/media/eva.089c4f4e.jpg",
+    "static/media/header.jpg": "/AppEstimator/static/media/header.ffcc99c4.jpg",
+    "static/media/hero-image-1.png": "/AppEstimator/static/media/hero-image-1.a76c7b4c.png",
+    "static/media/hero-image-2.png": "/AppEstimator/static/media/hero-image-2.9616730d.png",
+    "static/media/hero-image-3.png": "/AppEstimator/static/media/hero-image-3.02cd0e2d.png",
+    "static/media/high.png": "/AppEstimator/static/media/high.18407fba.png",
+    "static/media/imbuelogo.png": "/AppEstimator/static/media/imbuelogo.3b3b3b75.png",
+    "static/media/login.jpg": "/AppEstimator/static/media/login.b2101951.jpg",
+    "static/media/logo.png": "/AppEstimator/static/media/logo.8662d46a.png",
+    "static/media/now-ui-kit.scss?v=1.4.0": "/AppEstimator/static/media/nucleo-outline.8ebec31f.woff2",
+    "static/media/ryan.jpg": "/AppEstimator/static/media/ryan.f217f346.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32cedd3a.js",
+    "static/js/2.749d8afd.chunk.js",
+    "static/css/main.1b864437.chunk.css",
+    "static/js/main.a4fa8e35.chunk.js"
+  ]
+}
