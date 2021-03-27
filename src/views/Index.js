@@ -18,7 +18,7 @@ import Images from "./index-sections/Images.js";
 // import Notifications from "./index-sections/Notifications.js";
 // import Typography from "./index-sections/Typography.js";
 // import Javascript from "./index-sections/Javascript.js";
-import Carousel from "./index-sections/Carousel.js";
+// import Carousel from "./index-sections/Carousel.js";
 // import NucleoIcons from "./index-sections/NucleoIcons.js";
 // import CompleteExamples from "./index-sections/CompleteExamples.js";
 // import SignUp from "./index-sections/SignUp.js";
@@ -27,19 +27,19 @@ import Carousel from "./index-sections/Carousel.js";
 // import Tasks from "components/Features/Tasks.js";
 // import Grids from "../views/index-sections/CheckList/elements"
 import Estimator from "./index-sections/Estimator.js";
-import Estimate from "./index-sections/Estimate.js";
-import BasicTable from "../components/Table/tables";
-import Platform from "components/Estimator/Platform.js";
-import Pages from "components/Estimator/Pages.js";
-import Database from "components/Estimator/Database.js";
-import Users from "components/Estimator/Users.js";
-import Features from "components/Estimator/Features.js";
-import Customization from "components/Estimator/Customization.js";
-import Security from "components/Estimator/Security.js";
-import Squad from "components/Estimator/Squad.js";
-import FloatingActionButtons from "components/Estimator/FloatingButton.js";
-import Contact from "components/ContactUs/Contact.js";
-import carouselSlidesData from "../views/index-sections/Sliderdata"
+// import Estimate from "./index-sections/Estimate.js";
+// import BasicTable from "../components/Table/tables";
+// import Platform from "components/Estimator/Platform.js";
+// import Pages from "components/Estimator/Pages.js";
+// import Database from "components/Estimator/Database.js";
+// import Users from "components/Estimator/Users.js";
+// import Features from "components/Estimator/Features.js";
+// import Customization from "components/Estimator/Customization.js";
+// import Security from "components/Estimator/Security.js";
+// import Squad from "components/Estimator/Squad.js";
+// import FloatingActionButtons from "components/Estimator/FloatingButton.js";
+// import Contact from "components/ContactUs/Contact.js";
+// import carouselSlidesData from "../views/index-sections/Sliderdata"
 
 function Index() {
   React.useEffect(() => {
