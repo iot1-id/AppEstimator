@@ -501,7 +501,7 @@ export default function SimpleContainer() {
           <br />
 
           <Col className="ml-auto mr-auto center">
-            {pages}
+            {/* {pages} */}
             <CustomButton
               style={{
                 backgroundColor: page[0] ? "#0f75bc" : "white",
