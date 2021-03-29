@@ -30,7 +30,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-
+import SlidingContainer from "react-sliding-container";
 import CustomButton from "components/Custom-button/custom-button.component";
 import { makeStyles } from "@material-ui/core/styles";
 import FormLabel from "@material-ui/core/FormLabel";
@@ -54,6 +54,7 @@ import {
   authentication,
 } from "../../components/Features/general";
 import FloatingActionButtons from "components/Estimator/FloatingButton";
+import "../node_modules/react-sliding-container/lib/SlidingContainer.css";
 
 function printDiv(printableArea ) {
   var printContents = document.getElementById("printableArea").innerHTML;
@@ -432,6 +433,7 @@ function Estimate() {
       <h1 className="headings">1. Your Required Platform </h1>
       {/* <p>{platforms}</p> */}
       <br />
+      
       <Col>
         <CustomButton
           onClick={() => {

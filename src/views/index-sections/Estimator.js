@@ -1,8 +1,7 @@
-
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import "../../assets/scss/estimator.scss"
+import "../../assets/scss/estimator.scss";
 import React, { useState } from "react";
 
 // import "../../assets/scss/estimate.scss";
@@ -15,12 +14,9 @@ import {
   Row,
   Modal,
   ModalBody,
-
-  
 } from "reactstrap";
 import emailjs from "emailjs-com";
 import TextField from "@material-ui/core/TextField";
-
 
 import Grid from "@material-ui/core/Grid";
 
@@ -132,261 +128,267 @@ function calculatePrice(
   return { minPrice, maxPrice };
 }
 export default function SimpleContainer() {
+  const [minHours, setMinHours] = React.useState(0);
+  const [maxHours, SetMaxhours] = React.useState(0);
 
- const [minHours, setMinHours] = React.useState(0);
- const [maxHours, SetMaxhours] = React.useState(0);
+  const [isAndroidBC, setIsAndroidBC] = React.useState(true);
+  const [isAppleBC, setIsAppleBC] = React.useState(true);
+  const [isWebBC, setIsWebBC] = React.useState(true);
 
- const [isAndroidBC, setIsAndroidBC] = React.useState(true);
- const [isAppleBC, setIsAppleBC] = React.useState(true);
- const [isWebBC, setIsWebBC] = React.useState(true);
+  const [isCloudBC, setIsCloudbBC] = React.useState(true);
+  const [isIDBBC, setIsIDBBC] = React.useState(true);
+  const [isEDBBC, setIsEDBBC] = React.useState(true);
 
- const [isCloudBC, setIsCloudbBC] = React.useState(true);
- const [isIDBBC, setIsIDBBC] = React.useState(true);
- const [isEDBBC, setIsEDBBC] = React.useState(true);
+  const [isMinimal, setIsMinimal] = React.useState(true);
+  const [isBasic, setIsBasic] = React.useState(true);
+  const [isPolished, setIsPolished] = React.useState(true);
 
- const [isMinimal, setIsMinimal] = React.useState(true);
- const [isBasic, setIsBasic] = React.useState(true);
- const [isPolished, setIsPolished] = React.useState(true);
+  const [isBase, setIsBase] = React.useState(true);
+  const [isHigh, setIsHigh] = React.useState(true);
+  const [isAdvance, setIsAdvance] = React.useState(true);
 
- const [isBase, setIsBase] = React.useState(true);
- const [isHigh, setIsHigh] = React.useState(true);
- const [isAdvance, setIsAdvance] = React.useState(true);
+  const [isTen, setIsTen] = React.useState(true);
+  const [isFifty, setIsFifty] = React.useState(true);
+  const [isHundred, setIsHundred] = React.useState(true);
 
- const [isTen, setIsTen] = React.useState(true);
- const [isFifty, setIsFifty] = React.useState(true);
- const [isHundred, setIsHundred] = React.useState(true);
+  const [is100, setIs100] = React.useState(true);
+  const [is1k, setIs1k] = React.useState(true);
+  const [is10k, setIs10k] = React.useState(true);
 
- const [is100, setIs100] = React.useState(true);
- const [is1k, setIs1k] = React.useState(true);
- const [is10k, setIs10k] = React.useState(true);
+  const [isFresherCount, setFresherCount] = React.useState(0);
+  const [isJuniorCount, setJuniorCount] = React.useState(0);
+  const [isSeniorCount, setSeniorCount] = React.useState(0);
 
- const [isFresherCount, setFresherCount] = React.useState(0);
- const [isJuniorCount, setJuniorCount] = React.useState(0);
- const [isSeniorCount, setSeniorCount] = React.useState(0);
+  const [page, setpage] = useState([false, false, false]);
+  const [dbms, setdbms] = useState([false, false, false]);
+  const [sec, setsec] = useState([false, false, false]);
+  const [user, setuser] = useState([false, false, false]);
+  const [custom, setcustom] = useState([false, false, false]);
 
- const [modal1, setModal1] = React.useState(false);
+  const [modal1, setModal1] = React.useState(false);
 
- const [name, setName] = useState("");
- const [email, setEmail] = useState("");
- const [message, setMessage] = useState("");
- const [contactNumber, setcontactNumber] = useState("");
- const [loader, setLoader] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [contactNumber, setcontactNumber] = useState("");
+  const [loader, setLoader] = useState(false);
 
- const classes2 = useStyles2();
+  const [minPages, setMinPages] = useState([5]);
+  const [temp2, settemp2] = useState(0);
 
-function sendEmail(e) {
-  e.preventDefault();
+  const classes2 = useStyles2();
 
-  // $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-  //   type: "POST",
-  //   data: JSON.stringify(data),
-  //   contentType: "application/json",
-  // })
-  //   .done(function () {
-  //     alert("Your mail is sent!");
-  //   })
-  //   .fail(function (error) {
-  //     alert("Oops... " + JSON.stringify(error));
-  //   });
+  function sendEmail(e) {
+    e.preventDefault();
 
-  emailjs
-    .sendForm(
-      "service_frba6h7",
-      "template_30z0wle",
-      e.target,
-      "user_mN45nmQKfQrjwE6HJ9BIi"
-    )
-    .then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
-  console.log(templateParams);
-  e.target.reset();
-  setModal1(false);
-}
+    // $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+    //   type: "POST",
+    //   data: JSON.stringify(data),
+    //   contentType: "application/json",
+    // })
+    //   .done(function () {
+    //     alert("Your mail is sent!");
+    //   })
+    //   .fail(function (error) {
+    //     alert("Oops... " + JSON.stringify(error));
+    //   });
 
-const classes1 = useStyles1();
+    emailjs
+      .sendForm(
+        "service_frba6h7",
+        "template_30z0wle",
+        e.target,
+        "user_mN45nmQKfQrjwE6HJ9BIi"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    console.log(templateParams);
+    e.target.reset();
+    setModal1(false);
+  }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-}));
-const handleSaveToPDF = (event) => {
-  event.preventDefault();
-  var printContents = document.getElementById("printableArea").innerHTML;
-  var originalContents = document.body.innerHTML;
+  const classes1 = useStyles1();
 
-  document.body.innerHTML = printContents;
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: "flex",
+    },
+    formControl: {
+      margin: theme.spacing(3),
+    },
+  }));
+  const handleSaveToPDF = (event) => {
+    event.preventDefault();
+    var printContents = document.getElementById("printableArea").innerHTML;
+    var originalContents = document.body.innerHTML;
 
-  window.print();
+    document.body.innerHTML = printContents;
 
-  document.body.innerHTML = originalContents;
-  // window.print();
-};
-const [state, setState] = React.useState({});
-const [platforms, setPlatforms] = useState([]);
-const [pages, setpages] = useState("");
-const [database, setdatabase] = useState("");
-const [customize, setcustomize] = useState("");
-const [security, setsecurity] = useState("");
-const [users, setusers] = useState("");
-// const [general, setgeneral] = useState([])
-// const [admin, setadmin] = useState([])
-// const [social, setsocial] = useState([])
-// const [ecommerces, setecommerces] = useState([])
-// const [medias, setmedias] = useState([])
-const [features, setfeatures] = useState([]);
+    window.print();
 
-// const [fresher, setfresher] = useState(0);
-// const [junior, setjunior] = useState(0);
-// const [senior, setsenior] = useState(0);
-// console.log(platforms);
+    document.body.innerHTML = originalContents;
+    // window.print();
+  };
+  const [state, setState] = React.useState({});
+  const [platforms, setPlatforms] = useState([]);
+  const [pages, setpages] = useState("");
+  const [database, setdatabase] = useState("");
+  const [customize, setcustomize] = useState("");
+  const [security, setsecurity] = useState("");
+  const [users, setusers] = useState("");
+  // const [general, setgeneral] = useState([])
+  // const [admin, setadmin] = useState([])
+  // const [social, setsocial] = useState([])
+  // const [ecommerces, setecommerces] = useState([])
+  // const [medias, setmedias] = useState([])
+  const [features, setfeatures] = useState([]);
 
-//
+  // const [fresher, setfresher] = useState(0);
+  // const [junior, setjunior] = useState(0);
+  // const [senior, setsenior] = useState(0);
+  // console.log(platforms);
 
-const { minPrice, maxPrice } = calculatePrice(
-  minHours,
-  maxHours,
-  isFresherCount,
-  isSeniorCount,
-  isJuniorCount
-);
-//   const { gilad, jason, antoine } = state;
-let i = 0;
-const classes = useStyles();
-const handleChange = (event) => {
-  setState({ ...state, [event.target.name]: event.target.checked });
-  if (event.target.checked) {
-    setMinHours(minHours + minData[event.target.name]);
-    SetMaxhours(maxHours + maxData[event.target.name]);
-    var x = event.target.name;
-    // console.log(x);
-    features.push(x);
-    features.push(", ")
-  } else if (!event.target.checked) {
-    setMinHours(minHours - minData[event.target.name]);
-    SetMaxhours(maxHours - maxData[event.target.name]);
-    for (var i = 0; i < features.length; i++) {
-      if (features[i] === event.target.name) {
-        features.splice(i, 2);
+  //
+
+  const { minPrice, maxPrice } = calculatePrice(
+    minHours,
+    maxHours,
+    isFresherCount,
+    isSeniorCount,
+    isJuniorCount
+  );
+  //   const { gilad, jason, antoine } = state;
+  let i = 0;
+  const classes = useStyles();
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+    if (event.target.checked) {
+      setMinHours(minHours + minData[event.target.name]);
+      SetMaxhours(maxHours + maxData[event.target.name]);
+      var x = event.target.name;
+      // console.log(x);
+      features.push(x);
+      features.push(", ");
+    } else if (!event.target.checked) {
+      setMinHours(minHours - minData[event.target.name]);
+      SetMaxhours(maxHours - maxData[event.target.name]);
+      for (var i = 0; i < features.length; i++) {
+        if (features[i] === event.target.name) {
+          features.splice(i, 2);
+        }
       }
     }
-  }
-};
+  };
 
-const socialIterate = socials.map((socials) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={socials} />}
-      label={socials}
-    />
-  );
-});
-const authIterate = authentication.map((authentication) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={authentication} />}
-      label={authentication}
-    />
-  );
-});
-const general1Iterate = general1.map((general1) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={general1} />}
-      label={general1}
-    />
-  );
-});
-const general2Iterate = general2.map((general2) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={general2} />}
-      label={general2}
-    />
-  );
-});
-const mediaIterate = media.map((media) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={media} />}
-      label={media}
-    />
-  );
-});
-const ecommerceIterate = ecommerce.map((ecommerce) => {
-  return (
-    <FormControlLabel
-      key={i++}
-      control={<Checkbox onChange={handleChange} name={ecommerce} />}
-      label={ecommerce}
-    />
-  );
-});
-const rows = [
-  createData("Platforms: ", platforms),
-  createData("Pages: ", pages),
-  createData("Database: ", database),
-  createData("Number of Users: ", users),
-  createData("Features: ", features),
-  // createData("Admin Features", 356),
-  // createData("Authentication Features", 356),
-  // createData("Media Features", 356),
-  // createData("Ecommerce Features", 356),
-  // createData("Social Features", 356),
-  createData("Customization Level: ", customize),
-  createData("Level of Security: ", security),
-  createData(
-    "Squad Members: ",
-    `Fresher Devs: ${isFresherCount}, 
+  const socialIterate = socials.map((socials) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={socials} />}
+        label={socials}
+      />
+    );
+  });
+  const authIterate = authentication.map((authentication) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={authentication} />}
+        label={authentication}
+      />
+    );
+  });
+  const general1Iterate = general1.map((general1) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={general1} />}
+        label={general1}
+      />
+    );
+  });
+  const general2Iterate = general2.map((general2) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={general2} />}
+        label={general2}
+      />
+    );
+  });
+  const mediaIterate = media.map((media) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={media} />}
+        label={media}
+      />
+    );
+  });
+  const ecommerceIterate = ecommerce.map((ecommerce) => {
+    return (
+      <FormControlLabel
+        key={i++}
+        control={<Checkbox onChange={handleChange} name={ecommerce} />}
+        label={ecommerce}
+      />
+    );
+  });
+  const rows = [
+    createData("Platforms: ", platforms),
+    createData("Pages: ", pages),
+    createData("Database: ", database),
+    createData("Number of Users: ", users),
+    createData("Features: ", features),
+    // createData("Admin Features", 356),
+    // createData("Authentication Features", 356),
+    // createData("Media Features", 356),
+    // createData("Ecommerce Features", 356),
+    // createData("Social Features", 356),
+    createData("Customization Level: ", customize),
+    createData("Level of Security: ", security),
+    createData(
+      "Squad Members: ",
+      `Fresher Devs: ${isFresherCount}, 
       Junior  Devs:  ${isJuniorCount}, 
       Senior Devs: ${isSeniorCount}`
-  ),
-  createData(
-    "Estimated Hours: ",
-    `Mimimum Hours: ${minHours},
+    ),
+    createData(
+      "Estimated Hours: ",
+      `Mimimum Hours: ${minHours},
        Maximum Hours: ${maxHours}`
-  ),
-  createData(
-    "Estimated Price: ",
-    `Mimimum Price: $${minPrice}, Maximum Price: $${maxPrice}`
-  ),
-];
+    ),
+    createData(
+      "Estimated Price: ",
+      `Mimimum Price: $${minPrice}, Maximum Price: $${maxPrice}`
+    ),
+  ];
 
-var templateParams = {
-  name: name,
-  email: email,
-  message: message,
-  contactNumber: contactNumber,
-  maxHours: maxHours,
-  maxPrice: maxPrice,
-  minPrice: minPrice,
-  minhours: minHours,
-  isSeniorCount: isSeniorCount,
-  isJuniorCount: isJuniorCount,
-  isFresherCount: isFresherCount,
-  security: security,
-  customize: customize,
-  features: features,
-  users: users,
-  database: database,
-  platforms: platforms,
-};
-
-
+  var templateParams = {
+    name: name,
+    email: email,
+    message: message,
+    contactNumber: contactNumber,
+    maxHours: maxHours,
+    maxPrice: maxPrice,
+    minPrice: minPrice,
+    minhours: minHours,
+    isSeniorCount: isSeniorCount,
+    isJuniorCount: isJuniorCount,
+    isFresherCount: isFresherCount,
+    security: security,
+    customize: customize,
+    features: features,
+    users: users,
+    database: database,
+    platforms: platforms,
+  };
 
   return (
     <React.Fragment>
@@ -400,18 +402,25 @@ var templateParams = {
 
           <Col className="ml-auto mr-auto center">
             <CustomButton
+              style={{
+                backgroundColor: !isAndroidBC ? "#0f75bc" : "white",
+                color: !isAndroidBC ? "white" : "#0f75bc",
+              }}
               onClick={() => {
                 if (isAndroidBC) {
+                  // setIsAndroidBC(true);
+                  // setIsAppleBC(true);
+                  // setIsWebBC(true);
                   setIsAndroidBC(false);
                   setMinHours(minHours + 48);
                   SetMaxhours(maxHours + 75);
-                  platforms.push("Android ");
+                  platforms.push("Android, ");
                 } else {
                   setIsAndroidBC(true);
                   setMinHours(minHours - 48);
                   SetMaxhours(maxHours - 75);
                   for (var i = 0; i < platforms.length; i++) {
-                    if (platforms[i] === "Android") {
+                    if (platforms[i] === "Android, ") {
                       platforms.splice(i, 1);
                     }
                   }
@@ -422,6 +431,10 @@ var templateParams = {
               <i className="fab fa-android"></i>
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: !isAppleBC ? "#0f75bc" : "white",
+                color: !isAppleBC ? "white" : "#0f75bc",
+              }}
               onClick={() => {
                 // if (isAppleBC && isAndroidBC) {
                 //   setIsAppleBC(false);
@@ -432,13 +445,13 @@ var templateParams = {
                   setIsAppleBC(false);
                   setMinHours(minHours + 48);
                   SetMaxhours(maxHours + 75);
-                  platforms.push("IOS");
+                  platforms.push("IOS, ");
                 } else {
                   setIsAppleBC(true);
                   setMinHours(minHours - 48);
                   SetMaxhours(maxHours - 75);
                   for (var i = 0; i < platforms.length; i++) {
-                    if (platforms[i] === "IOS ") {
+                    if (platforms[i] === "IOS, ") {
                       platforms.splice(i, 1);
                     }
                   }
@@ -449,18 +462,22 @@ var templateParams = {
               <i class="fab fa-apple"></i>
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: !isWebBC ? "#0f75bc" : "white",
+                color: !isWebBC ? "white" : "#0f75bc",
+              }}
               onClick={() => {
                 if (isWebBC) {
                   setIsWebBC(false);
                   setMinHours(minHours + 48);
                   SetMaxhours(maxHours + 75);
-                  platforms.push("Web");
+                  platforms.push("Web, ");
                 } else {
                   setIsWebBC(true);
                   setMinHours(minHours - 48);
                   SetMaxhours(maxHours - 75);
                   for (var i = 0; i < platforms.length; i++) {
-                    if (platforms[i] === "Web ") {
+                    if (platforms[i] === "Web, ") {
                       platforms.splice(i, 1);
                     }
                   }
@@ -484,70 +501,156 @@ var templateParams = {
           <br />
 
           <Col className="ml-auto mr-auto center">
+            {pages}
             <CustomButton
+              style={{
+                backgroundColor: page[0] ? "#0f75bc" : "white",
+                color: page[0] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isTen) {
+                if (page[0]) {
+                  // setIsTen(true);
+                  // setIsFifty(true);
+                  // setIsHundred(true);
+                  setpage([true, false, false]);
                   setIsTen(false);
-                  setMinHours(minHours + 5);
-                  SetMaxhours(maxHours + 10);
-                  setpages("10+");
+                  // settemp1();
+                  settemp2();
+                  console.log("afvghajch cahjefvbj");
+
                   // setIsFifty(true);
                   // setIsHundred(true);
                 } else {
-                  setIsTen(true);
-                  setMinHours(minHours - 5);
-                  SetMaxhours(maxHours - 10);
-                  setpages("");
+                  // setIsTen(true);
+
+                  let temp = [false, false, false];
+                  temp[0] = true;
+
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (page[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (page[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (page[2]) {
+                    minCount = 60;
+                    maxCount = 80;
+                  }
+                  setMinHours(minHours - minCount + 5);
+                  SetMaxhours(maxHours - maxCount + 10);
+                  setpage(temp);
+                  setpages("10+");
+                  // setpages("");
                   // setIsFifty(false);
                   // setIsHundred(false);
                 }
+                // console.log(page);
               }}
-              disabled={!isFifty || !isHundred}
+              // disabled={!isFifty || !isHundred}
             >
               10+
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: page[1] ? "#0f75bc" : "white",
+                color: page[1] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
                 // if (isAppleBC && isAndroidBC) {
                 //   setIsAppleBC(false);
                 //   setMinHours(minHours + 32);
                 //   SetMaxhours(maxHours + 35);
                 // }
-                if (isFifty) {
+                if (page[1]) {
+                  // setIsTen(true);
+                  // setIsFifty(true);
+                  // setIsHundred(true);
+                  setpage([false, true, false]);
                   setIsFifty(false);
-                  setMinHours(minHours + 30);
-                  SetMaxhours(maxHours + 50);
-                  setpages("50+");
+
+                  
                   // setIsTen(true);
                   // setIsHundred(true);
                 } else {
-                  setIsFifty(true);
-                  setMinHours(minHours - 30);
-                  SetMaxhours(maxHours - 50);
-                  setpages("");
+                  // setIsFifty(true);
+                  let temp = [false, false, false];
+
+                  temp[1] = true;
+
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (page[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (page[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (page[2]) {
+                    minCount = 60;
+                    maxCount = 80;
+                  }
+                  setMinHours(minHours - minCount + 30);
+                  SetMaxhours(maxHours - maxCount + 50);
+                  setpage(temp);
+                  setpages("50+");
                 }
+                // console.log(page);
               }}
-              disabled={!isTen || !isHundred}
+              // disabled={!isTen || !isHundred}
             >
               50+
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: page[2] ? "#0f75bc" : "white",
+
+                color: page[2] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isHundred) {
+                if (page[2]) {
+                  // setIsTen(true);
+                  // setIsFifty(true);
+                  // setIsHundred(true);
+                  setpage([false, false, true]);
                   setIsHundred(false);
-                  setMinHours(minHours + 60);
-                  SetMaxhours(maxHours + 80);
-                  setpages("100+");
+
+                  
                   // setIsFifty(true);
                   // setIsHundred(true);
                 } else {
-                  setIsHundred(true);
-                  setMinHours(minHours - 60);
-                  SetMaxhours(maxHours - 80);
-                  setpages("");
+                  // setIsHundred(true);
+                  let temp = [false, false, false];
+
+                  temp[2] = true;
+
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (page[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (page[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (page[2]) {
+                    minCount = 60;
+                    maxCount = 80;
+                  }
+                  setMinHours(minHours - minCount + 60);
+                  SetMaxhours(maxHours - maxCount + 80);
+                  setpage(temp);
+                  setpages("100+");
                 }
+                // console.log(page);
               }}
-              disabled={!isFifty || !isTen}
+              // disabled={!isFifty || !isTen}
             >
               100+
             </CustomButton>
@@ -564,59 +667,127 @@ var templateParams = {
 
           <Col className="ml-auto mr-auto center">
             <CustomButton
+              style={{
+                backgroundColor: dbms[0] ? "#0f75bc" : "white",
+                color: dbms[0] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isCloudBC) {
+                if (dbms[0]) {
                   setIsCloudbBC(false);
-                  setMinHours(minHours + 30);
-                  SetMaxhours(maxHours + 45);
-                  setdatabase("Cloud Database");
+                  // setMinHours(minHours + 30);
+                  // SetMaxhours(maxHours + 45);
+                  setdbms([true, false, false]);
+                  
                 } else {
+                  let temp = [false, false, false];
+                  temp[0] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (dbms[0]) {
+                    minCount = 30;
+                    maxCount = 45;
+                  }
+                  if (dbms[1]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  if (dbms[2]) {
+                    minCount = 20;
+                    maxCount = 35;
+                  }
+                  setMinHours(minHours - minCount + 30);
+                  SetMaxhours(maxHours - maxCount + 45);
+                  setdbms(temp);
                   setIsCloudbBC(true);
-                  setMinHours(minHours - 30);
-                  SetMaxhours(maxHours - 45);
-                  setdatabase("");
+                  setdatabase("Cloud Database");
                 }
               }}
-              disabled={!isIDBBC || !isEDBBC}
+              // disabled={!isIDBBC || !isEDBBC}
             >
               Cloud&nbsp;&nbsp;
               <i class="fas fa-cloud-upload-alt"></i>
             </CustomButton>
 
             <CustomButton
+              style={{
+                backgroundColor: dbms[1] ? "#0f75bc" : "white",
+                color: dbms[1] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isIDBBC) {
+                if (dbms[1]) {
                   setIsIDBBC(false);
-                  setMinHours(minHours + 50);
-                  SetMaxhours(maxHours + 75);
-                  setdatabase("Internal Database");
+                  // setMinHours(minHours + 50);
+                  // SetMaxhours(maxHours + 75);
+                  setdbms([false, true, false]);
+                  // setdatabase("Internal Database");
                 } else {
+                  let temp = [false, false, false];
+                  temp[1] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (dbms[0]) {
+                    minCount = 30;
+                    maxCount = 45;
+                  }
+                  if (dbms[1]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  if (dbms[2]) {
+                    minCount = 20;
+                    maxCount = 35;
+                  }
+                  setMinHours(minHours - minCount + 50);
+                  SetMaxhours(maxHours - maxCount + 75);
+                  setdbms(temp);
                   setIsIDBBC(true);
-                  setMinHours(minHours - 50);
-                  SetMaxhours(maxHours - 75);
-                  setdatabase("");
+
+                  setdatabase("Internal Database");
                 }
               }}
-              disabled={!isCloudBC || !isEDBBC}
+              // disabled={!isCloudBC || !isEDBBC}
             >
               Internal DB&nbsp;&nbsp;
               <i class="fas fa-database"></i>
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: dbms[2] ? "#0f75bc" : "white",
+                color: dbms[2] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isEDBBC) {
+                if (dbms[2]) {
                   setIsEDBBC(false);
-                  setMinHours(minHours + 20);
-                  SetMaxhours(maxHours + 35);
-                  setdatabase("Existing Database");
+                  // setMinHours(minHours + 20);
+                  // SetMaxhours(maxHours + 35);
+                  setdbms([false, false, true]);
+                  // setdatabase("Existing Database");
                 } else {
+                  let temp = [false, false, false];
+                  temp[2] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (dbms[0]) {
+                    minCount = 30;
+                    maxCount = 45;
+                  }
+                  if (dbms[1]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  if (dbms[2]) {
+                    minCount = 20;
+                    maxCount = 35;
+                  }
+                  setMinHours(minHours - minCount + 20);
+                  SetMaxhours(maxHours - maxCount + 35);
+                  setdbms(temp);
                   setIsEDBBC(true);
-                  setMinHours(minHours - 20);
-                  SetMaxhours(maxHours - 35);
-                  setdatabase("");
+
+                  setdatabase("Existing Database");
                 }
               }}
-              disabled={!isIDBBC || !isCloudBC}
+              // disabled={!isIDBBC || !isCloudBC}
             >
               Existing DB&nbsp;&nbsp;
               <i class="fas fa-server"></i>
@@ -634,56 +805,121 @@ var templateParams = {
 
           <Col className="ml-auto mr-auto center">
             <CustomButton
+              style={{
+                backgroundColor: user[0] ? "#0f75bc" : "white",
+                color: user[0] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (is100) {
+                if (user[0]) {
                   setIs100(false);
-                  setMinHours(minHours + 5);
-                  SetMaxhours(maxHours + 10);
-                  setusers("100+");
+                  setuser([true, false, false]);
+                  // setusers("100+");
                 } else {
+                  let temp = [false, false, false];
+                  temp[0] = true;
+
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (user[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (user[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (user[2]) {
+                    minCount = 50;
+                    maxCount = 70;
+                  }
+                  setMinHours(minHours - minCount + 5);
+                  SetMaxhours(maxHours - maxCount + 10);
+                  setuser(temp);
                   setIs100(true);
-                  setMinHours(minHours - 5);
-                  SetMaxhours(maxHours - 10);
-                  setusers("");
+
+                  setusers("100+");
                 }
               }}
-              disabled={!is1k || !is10k}
+              // disabled={!is1k || !is10k}
             >
               Less than 100
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: user[1] ? "#0f75bc" : "white",
+                color: user[1] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (is1k) {
+                if (user[1]) {
                   setIs1k(false);
-                  setMinHours(minHours + 25);
-                  SetMaxhours(maxHours + 40);
-                  setusers("1,000+");
+                  setuser([false, true, false]);
+                  // setusers("1,000+");
                 } else {
+                  let temp = [false, false, false];
+                  temp[1] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (user[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (user[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (user[2]) {
+                    minCount = 50;
+                    maxCount = 70;
+                  }
+                  setMinHours(minHours - minCount + 30);
+                  SetMaxhours(maxHours - maxCount + 50);
+                  setuser(temp);
                   setIs1k(true);
-                  setMinHours(minHours - 25);
-                  SetMaxhours(maxHours - 40);
-                  setusers("");
+
+                  setusers("1,000+");
                 }
               }}
-              disabled={!is100 || !is10k}
+              // disabled={!is100 || !is10k}
             >
               1,000 to 10,000
             </CustomButton>
             <CustomButton
+              style={{
+                backgroundColor: user[2] ? "#0f75bc" : "white",
+                color: user[2] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (is10k) {
+                if (user[2]) {
                   setIs10k(false);
-                  setMinHours(minHours + 50);
-                  SetMaxhours(maxHours + 75);
-                  setusers("10,000+");
+                  setuser([false, false, true]);
+                  // setusers("10,000+");
                 } else {
+                  let temp = [false, false, false];
+                  temp[2] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (user[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (user[1]) {
+                    minCount = 30;
+                    maxCount = 50;
+                  }
+                  if (user[2]) {
+                    minCount = 50;
+                    maxCount = 70;
+                  }
+                  setMinHours(minHours - minCount + 50);
+                  SetMaxhours(maxHours - maxCount + 70);
+                  setuser(temp);
+
                   setIs10k(true);
-                  setMinHours(minHours - 50);
-                  SetMaxhours(maxHours - 75);
-                  setusers("");
+
+                  setusers("10,000+");
                 }
               }}
-              disabled={!is1k || !is100}
+              // disabled={!is1k || !is100}
             >
               More than 10,000
             </CustomButton>
@@ -752,20 +988,41 @@ var templateParams = {
             <Button
               id="ui1"
               className="btn1"
+              style={{
+                backgroundColor: custom[0] ? "#0f75bc" : "white",
+                color: custom[0] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isMinimal) {
+                if (custom[0]) {
                   setIsMinimal(false);
-                  setMinHours(minHours + 10);
-                  SetMaxhours(maxHours + 25);
-                  setcustomize("Minimal UI");
+                  setcustom([true, false, false]);
+                  // setcustomize("Minimal UI");
                 } else {
+                  let temp = [false, false, false];
+                  temp[0] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (custom[0]) {
+                    minCount = 10;
+                    maxCount = 25;
+                  }
+                  if (custom[1]) {
+                    minCount = 35;
+                    maxCount = 50;
+                  }
+                  if (custom[2]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  setMinHours(minHours - minCount + 10);
+                  SetMaxhours(maxHours - maxCount + 25);
+                  setcustom(temp);
                   setIsMinimal(true);
-                  setMinHours(minHours - 10);
-                  SetMaxhours(maxHours - 25);
-                  setcustomize("");
+
+                  setcustomize("Minimal UI");
                 }
               }}
-              disabled={!isBasic || !isPolished}
+              // disabled={!isBasic || !isPolished}
             >
               <img
                 alt="..."
@@ -779,20 +1036,41 @@ var templateParams = {
             <Button
               id="ui2"
               className="btn1"
+              style={{
+                backgroundColor: custom[1] ? "#0f75bc" : "white",
+                color: custom[1] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isBasic) {
+                if (custom[1]) {
                   setIsBasic(false);
-                  setMinHours(minHours + 35);
-                  SetMaxhours(maxHours + 50);
-                  setcustomize("Vibrant UI");
+                  setcustom([false, true, false]);
+                  // setcustomize("Vibrant UI");
                 } else {
+                  let temp = [false, false, false];
+                  temp[1] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (custom[0]) {
+                    minCount = 10;
+                    maxCount = 25;
+                  }
+                  if (custom[1]) {
+                    minCount = 35;
+                    maxCount = 50;
+                  }
+                  if (custom[2]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  setMinHours(minHours - minCount + 35);
+                  SetMaxhours(maxHours - maxCount + 50);
+                  setcustom(temp);
                   setIsBasic(true);
-                  setMinHours(minHours - 35);
-                  SetMaxhours(maxHours - 50);
-                  setcustomize("");
+
+                  setcustomize("Vibrant UI");
                 }
               }}
-              disabled={!isPolished || !isMinimal}
+              // disabled={!isPolished || !isMinimal}
             >
               <img
                 alt="..."
@@ -806,20 +1084,41 @@ var templateParams = {
             <Button
               id="ui3"
               className="btn1"
+              style={{
+                backgroundColor: custom[2] ? "#0f75bc" : "white",
+                color: custom[2] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isPolished) {
+                if (custom[2]) {
                   setIsPolished(false);
-                  setMinHours(minHours + 50);
-                  SetMaxhours(maxHours + 75);
-                  setcustomize("Polished UI");
+                  setcustom([false, false, true]);
+                  // setcustomize("Polished UI");
                 } else {
+                  let temp = [false, false, false];
+                  temp[2] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (custom[0]) {
+                    minCount = 10;
+                    maxCount = 25;
+                  }
+                  if (custom[1]) {
+                    minCount = 35;
+                    maxCount = 50;
+                  }
+                  if (custom[2]) {
+                    minCount = 50;
+                    maxCount = 75;
+                  }
+                  setMinHours(minHours - minCount + 50);
+                  SetMaxhours(maxHours - maxCount + 75);
+                  setcustom(temp);
                   setIsPolished(true);
-                  setMinHours(minHours - 50);
-                  SetMaxhours(maxHours - 75);
-                  setcustomize("");
+
+                  setcustomize("Polished UI");
                 }
               }}
-              disabled={!isMinimal || !isBasic}
+              // disabled={!isMinimal || !isBasic}
             >
               <img
                 alt="..."
@@ -845,20 +1144,41 @@ var templateParams = {
             <Button
               id="security1"
               className="btn1"
+              style={{
+                backgroundColor: sec[0] ? "#0f75bc" : "white",
+                color: sec[0] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isBase) {
+                if (sec[0]) {
                   setIsBase(false);
-                  setMinHours(minHours + 5);
-                  SetMaxhours(maxHours + 10);
-                  setsecurity("Basic Security");
+                  setsec([true, false, false]);
+                  // setsecurity("Basic Security");
                 } else {
+                  let temp = [false, false, false];
+                  temp[0] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (sec[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (sec[1]) {
+                    minCount = 25;
+                    maxCount = 40;
+                  }
+                  if (sec[2]) {
+                    minCount = 45;
+                    maxCount = 60;
+                  }
+                  setMinHours(minHours - minCount + 5);
+                  SetMaxhours(maxHours - maxCount + 10);
+                  setsec(temp);
                   setIsBase(true);
-                  setMinHours(minHours - 5);
-                  SetMaxhours(maxHours - 10);
-                  setsecurity("");
+
+                  setsecurity("Basic Security");
                 }
               }}
-              disabled={!isHigh || !isAdvance}
+              // disabled={!isHigh || !isAdvance}
             >
               <img
                 alt="..."
@@ -876,20 +1196,41 @@ var templateParams = {
             <Button
               id="security2"
               className="btn1"
+              style={{
+                backgroundColor: sec[1] ? "#0f75bc" : "white",
+                color: sec[1] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isHigh) {
+                if (sec[1]) {
                   setIsHigh(false);
-                  setMinHours(minHours + 25);
-                  SetMaxhours(maxHours + 40);
-                  setsecurity("High Security");
+                  setsec([false, true, false]);
+                  // setsecurity("High Security");
                 } else {
+                  let temp = [false, false, false];
+                  temp[1] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (sec[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (sec[1]) {
+                    minCount = 25;
+                    maxCount = 40;
+                  }
+                  if (sec[2]) {
+                    minCount = 45;
+                    maxCount = 60;
+                  }
+                  setMinHours(minHours - minCount + 25);
+                  SetMaxhours(maxHours - maxCount + 40);
+                  setsec(temp);
                   setIsHigh(true);
-                  setMinHours(minHours - 25);
-                  SetMaxhours(maxHours - 40);
-                  setsecurity("");
+
+                  setsecurity("High Security");
                 }
               }}
-              disabled={!isBase || !isAdvance}
+              // disabled={!isBase || !isAdvance}
             >
               <img
                 alt="..."
@@ -907,20 +1248,41 @@ var templateParams = {
             <Button
               className="btn1"
               id="security3"
+              style={{
+                backgroundColor: sec[2] ? "#0f75bc" : "white",
+                color: sec[2] ? "white" : "#0f75bc",
+              }}
               onClick={() => {
-                if (isAdvance) {
+                if (sec[2]) {
                   setIsAdvance(false);
-                  setMinHours(minHours + 45);
-                  SetMaxhours(maxHours + 60);
-                  setsecurity("Advanced Security");
+                  setsec([false, false, true]);
+                  // setsecurity("Advanced Security");
                 } else {
+                  let temp = [false, false, false];
+                  temp[2] = true;
+                  let minCount = 0;
+                  let maxCount = 0;
+                  if (sec[0]) {
+                    minCount = 5;
+                    maxCount = 10;
+                  }
+                  if (sec[1]) {
+                    minCount = 25;
+                    maxCount = 40;
+                  }
+                  if (sec[2]) {
+                    minCount = 45;
+                    maxCount = 60;
+                  }
+                  setMinHours(minHours - minCount + 45);
+                  SetMaxhours(maxHours - maxCount + 60);
+                  setsec(temp);
                   setIsAdvance(true);
-                  setMinHours(minHours - 45);
-                  SetMaxhours(maxHours - 60);
-                  setsecurity("");
+
+                  setsecurity("Advanced Security");
                 }
               }}
-              disabled={!isHigh || !isBase}
+              // disabled={!isHigh || !isBase}
             >
               <img
                 alt="..."
@@ -954,7 +1316,7 @@ var templateParams = {
                     setFresherCount(isFresherCount - 1);
                   }
                 }}
-                disabled={!isFresherCount}
+                // disabled={!isFresherCount}
               >
                 <RemoveIcon />
               </button>
@@ -985,7 +1347,7 @@ var templateParams = {
                     setJuniorCount(isJuniorCount - 1);
                   }
                 }}
-                disabled={!isJuniorCount}
+                // disabled={!isJuniorCount}
               >
                 <RemoveIcon />
               </button>
@@ -1016,7 +1378,7 @@ var templateParams = {
                     setSeniorCount(isSeniorCount - 1);
                   }
                 }}
-                disabled={!isSeniorCount}
+                // disabled={!isSeniorCount}
               >
                 <RemoveIcon />
               </button>
